@@ -1,0 +1,9 @@
+* {
+    box-sizing: border-box;
+}
+
+#app {
+    width: 880px;
+    margin: 0 auto;
+    background-color: red;
+}
