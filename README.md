@@ -1,8 +1,9 @@
-# vanilla-js-starter
-Scaffolding for a vanilla js project
+# fling-web
+
+Example website demonstrating the "fling" pattern on Farcaster protocol.
 
 
-## Hot-reloading
+## Development
 
 ```bash
 ./hotreload.sh
