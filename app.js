@@ -33,6 +33,9 @@ function searchFling(button, input, flings) {
         return;
       }
       for (let cast of res.casts) {
+        if (cast.body.data.text[0] !== "⌆") {
+          continue;
+        }
         const castBox = document.createElement("div");
         castBox.classList.add("rounded-md", "p-4", "bg-gray-100", "m-2");
         const castDate = document.createElement("p");
