@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>MY GREAT APP TITLE</title>
-        <link rel="stylesheet" type="text/css" href="./main.css" />
-    </head>
-    <body>
-        <h1>fling</h1>
-        <div id="app"></div>
-        <script src="./app.js"></script>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>fling</title>
+    <link rel="stylesheet" type="text/css" href="./main.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="flex flex-col items-center justify-center h-screen space-y-2">
+      <h1 class="text-3xl">fling ⌆</h1>
+      <div class="flex flex-row items-center justify-center space-x-2">
+        <form id="search_form">
+          <input
+            class="border-solid border-2 border-teal-500 rounded-md py-1.5 outline-none px-4"
+            id="search_input"
+            type="text"
+            placeholder="whatrocks"
+          />
+        </form>
+        <button
+          class="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white bg-teal-500 hover:bg-teal-400"
+          id="search_button"
+        >
+          Search
+        </button>
+      </div>
+      <div id="flings"></div>
+      <a
+        class="text-sm text-gray-500"
+        href="https://gist.github.com/whatrocks/b4b7c306b307c3c707f0d6256fe9afb0"
+        target="_blank"
+        >What is fling?</a
+      >
+    </div>
+    <script src="./app.js"></script>
+  </body>
 </html>
