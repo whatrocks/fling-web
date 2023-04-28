@@ -15,12 +15,29 @@ function renderApp() {
     const input = document.getElementById("search_input");
     searchFling(button, input, flings);
   });
+
+  // get existing query
+  const params = new Proxy(new URLSearchParams(window.location.search), {
+    get: (searchParams, prop) => searchParams.get(prop),
+  });
+  if (params.username) {
+    const input = document.getElementById("search_input");
+    input.innerText = params.username;
+    input.value = params.username;
+    searchFling(button, input, flings);
+  }
 }
 
 function searchFling(button, input, flings) {
+  // to set new query
+  const newParams = new URLSearchParams();
+
   button.innerText = "Loading";
   // NOTE: This timeout is just to show loading indicator
   const username = input.value ? input.value : "whatrocks";
+  newParams.set("username", username);
+  window.history.replaceState({}, "", `${location.pathname}?${newParams}`);
+
   const url = `https://searchcaster.xyz/api/search?text=%E2%8C%86&username=${username}`;
 
   flings.innerHTML = "";
