@@ -38,7 +38,7 @@ function searchFling(button, input, flings) {
   newParams.set("username", username);
   window.history.replaceState({}, "", `${location.pathname}?${newParams}`);
 
-  const url = `https://searchcaster.xyz/api/search?text=%E2%8C%86&username=${username}`;
+  const url = `https://searchcaster.xyz/api/search?regex=%E2%8C%86&username=${username}`;
 
   flings.innerHTML = "";
   fetchSomething(url, (res) => {
