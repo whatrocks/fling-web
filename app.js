@@ -55,8 +55,10 @@ function searchFling(button, input, flings) {
         }
         const castBox = document.createElement("div");
         castBox.classList.add("rounded-md", "p-4", "bg-gray-100", "mx-2", "mb-4");
-        const castDate = document.createElement("p");
-        castDate.classList.add("font-semibold");
+        const castDate = document.createElement("a");
+        castDate.classList.add("font-semibold", "text-teal-500");
+        castDate.href = `https://warpcast.com/whatrocks/${cast.merkleRoot.slice(0,8)}`;
+        castDate.target = "_blank";
         castDate.innerText = new Date(cast.body.publishedAt).toDateString();
         castBox.appendChild(castDate);
         flings.appendChild(castBox);
