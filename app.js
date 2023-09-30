@@ -54,7 +54,7 @@ function searchFling(button, input, flings) {
           continue;
         }
         const castBox = document.createElement("div");
-        castBox.classList.add("rounded-md", "p-4", "bg-gray-100", "m-2");
+        castBox.classList.add("rounded-md", "p-4", "bg-gray-100", "mx-2", "mb-4");
         const castDate = document.createElement("p");
         castDate.classList.add("font-semibold");
         castDate.innerText = new Date(cast.body.publishedAt).toDateString();
