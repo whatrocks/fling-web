@@ -45,7 +45,7 @@ function searchFling(button, input, flings) {
     if (res === "error!") {
       flings.innerText = "Error while fetching flings!";
     } else {
-      if (res.casts.length === 0) {
+      if (res.casts && res.casts.length === 0) {
         flings.innerText = "No flings found!";
         return;
       }
@@ -64,6 +64,7 @@ function searchFling(button, input, flings) {
         flings.appendChild(castBox);
         // get the children with the same username
         let flingContents = ``;
+        let flingImgs = [];
         const castContent = document.createElement("p");
         castBox.appendChild(castContent);
         castContent.innerText = "Loading...";
@@ -76,10 +77,29 @@ function searchFling(button, input, flings) {
               for (let childCast of res.casts) {
                 // get the children with the same username
                 if (childCast.body.username === username) {
-                  flingContents = `${childCast.body.data.text}\n${flingContents}`;
+                  if (childCast.body.data.text) {
+                    flingContents = `${childCast.body.data.text}\n${flingContents}`;
+                  }
+                  if (childCast.body.data.image) {
+                    flingImgs.push(childCast.body.data.image);
+                  }
                 }
               }
-              castContent.innerText = flingContents;
+              castContent.innerText = '';
+              if (flingContents) {
+                const flingContent = document.createElement("p");
+                flingContent.innerText = flingContents;
+                castContent.appendChild(flingContent);
+              }
+              if (flingImgs.length) {
+                for (let fling_pic of flingImgs) { 
+                  const flingImg = document.createElement("img");
+                  flingImg.src = fling_pic;
+                  flingImg.classList.add("w-full", "my-4");
+                  castContent.appendChild(flingImg);
+                }
+              }
+              // castContent.innerText = flingContents;
               //   castBox.appendChild(castContent);
             }
           }
